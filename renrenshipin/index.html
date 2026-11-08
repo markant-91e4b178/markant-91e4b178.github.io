@@ -1,0 +1,1456 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人人视频网页版入口-在线观看_追剧指南_与客户端区别</title>
+    <meta name="description" content="人人视频网页版入口提供在线观看指南、热门剧集推荐与追剧攻略。了解网页版与客户端的区别、适配场景及常见问题，适合通勤或碎片时间追剧的用户。">
+    <meta name="keywords" content="在线观看指南,追剧攻略,网页版区别,客户端对比,美剧日剧">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232a7f6e'/%3E%3Cpath d='M12 10 L22 16 L12 22 Z' fill='white'/%3E%3C/svg%3E">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --brand: #0f3b34;
+            --brand-light: #1e5e52;
+            --accent: #e08b4b;
+            --accent-soft: #f9e6d8;
+            --bg: #f6f8f7;
+            --panel: #ffffff;
+            --border: #d9e2de;
+            --text: #1c2b28;
+            --text-soft: #4f625d;
+            --text-muted: #6f837d;
+            --shadow-sm: 0 2px 8px rgba(15, 59, 52, 0.06);
+            --shadow-md: 0 8px 24px rgba(15, 59, 52, 0.08);
+            --radius: 12px;
+            --radius-sm: 6px;
+            --announce-h: 40px;
+            --header-h: 64px;
+            --sticky-offset: 104px;
+            --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--sticky-offset);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* 吸顶公告条 + 页头 */
+        .sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .announce-bar {
+            background: var(--brand);
+            color: #ecf5f2;
+            font-size: 0.8rem;
+            padding: 0 1rem;
+            height: var(--announce-h);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .announce-bar strong {
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .site-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            height: var(--header-h);
+            display: flex;
+            align-items: center;
+            padding: 0 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-shrink: 0;
+        }
+
+        .brand svg {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--brand);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-soft);
+        }
+
+        .header-nav a:hover {
+            color: var(--brand);
+        }
+
+        .header-search {
+            display: flex;
+            align-items: center;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 0.3rem 0.3rem 0.3rem 0.9rem;
+            gap: 0.3rem;
+            width: 210px;
+            max-width: 30vw;
+        }
+
+        .header-search input {
+            border: none;
+            background: transparent;
+            font-size: 0.85rem;
+            padding: 0.3rem 0;
+            width: 100%;
+            outline: none;
+            font-family: inherit;
+            color: var(--text);
+            min-width: 0;
+        }
+
+        .header-search input::placeholder {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .header-search button {
+            background: var(--brand);
+            border: none;
+            border-radius: 30px;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background 0.15s;
+        }
+
+        .header-search button:hover {
+            background: var(--brand-light);
+        }
+
+        .header-search button svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: var(--text-soft);
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 首屏 */
+        .hero {
+            background: linear-gradient(135deg, #e9f2ef 0%, #f6f8f7 70%);
+            padding: 2rem 0 2.2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: #8a4f1d;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--brand);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-soft);
+            max-width: 600px;
+            margin-bottom: 1.2rem;
+            line-height: 1.65;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .btn-primary {
+            background: var(--brand);
+            color: white;
+            padding: 0.65rem 1.4rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-light);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--brand);
+            border: 1.5px solid var(--brand);
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.15s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(15, 59, 52, 0.06);
+        }
+
+        .hero-visual {
+            flex-shrink: 0;
+            width: 220px;
+            position: relative;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* 三栏布局 */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 170px 1fr 240px;
+            gap: 1.8rem;
+            padding: 2rem 0 2.5rem;
+            align-items: start;
+        }
+
+        /* 左栏 */
+        .sidebar-left {
+            position: sticky;
+            top: var(--sticky-offset);
+            align-self: start;
+        }
+
+        .sidebar-left nav {
+            background: var(--panel);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 1rem 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-left h2 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 0 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .sidebar-left ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .sidebar-left li a {
+            display: block;
+            font-size: 0.82rem;
+            padding: 0.4rem 0.5rem;
+            border-radius: var(--radius-sm);
+            color: var(--text-soft);
+            transition: background 0.12s, color 0.12s;
+            font-weight: 500;
+        }
+
+        .sidebar-left li a:hover {
+            background: #eef4f1;
+            color: var(--brand);
+        }
+
+        /* 中栏 */
+        .main-content {
+            min-width: 0;
+        }
+
+        .content-block {
+            background: var(--panel);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .content-block h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-block h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 1.1rem;
+            background: var(--accent);
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .content-block h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--brand);
+            margin: 1.2rem 0 0.5rem;
+        }
+
+        .content-block p {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .content-block ul {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0 0.8rem;
+            font-size: 0.88rem;
+            color: var(--text-soft);
+        }
+
+        .content-block li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 1rem;
+        }
+
+        .media-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.9rem;
+            background: #fafcfb;
+            transition: box-shadow 0.15s, border-color 0.15s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .media-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #c0d6ce;
+        }
+
+        .media-card .card-title {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 0.35rem;
+            line-height: 1.3;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.65rem;
+            background: #e3efeb;
+            padding: 0.15rem 0.45rem;
+            border-radius: 30px;
+            color: #1e5e52;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .tag-accent {
+            background: var(--accent-soft);
+            color: #8a4f1d;
+        }
+
+        .card-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            flex: 1;
+        }
+
+        .card-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 0.8rem;
+            border-top: 1px solid #e3ebe8;
+            padding-top: 0.4rem;
+            margin-top: auto;
+        }
+
+        /* 紧凑列表 */
+        .compact-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compact-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #edf2f0;
+            gap: 1rem;
+        }
+
+        .compact-item:last-child {
+            border-bottom: none;
+        }
+
+        .compact-item .item-name {
+            font-weight: 600;
+            font-size: 0.86rem;
+            color: var(--brand);
+            flex-shrink: 0;
+        }
+
+        .compact-item .item-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* 分类入口 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.7rem;
+        }
+
+        .category-item {
+            background: #f1f7f5;
+            border-radius: var(--radius-sm);
+            padding: 0.7rem 0.5rem;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--brand);
+            border: 1px solid transparent;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .category-item:hover {
+            border-color: var(--brand-light);
+            background: #e6f0ec;
+        }
+
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        details {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 0.9rem;
+            background: #fafcfb;
+        }
+
+        summary {
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            color: var(--brand);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
+
+        details[open] summary::after {
+            content: '−';
+        }
+
+        details p {
+            margin-top: 0.5rem;
+            font-size: 0.84rem;
+            color: var(--text-soft);
+            line-height: 1.65;
+        }
+
+        /* 评论 */
+        .comment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+
+        .comment-item {
+            background: #f9fbfa;
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 0.8rem;
+            border-left: 3px solid var(--brand-light);
+        }
+
+        .comment-user {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 0.15rem;
+        }
+
+        .comment-text {
+            font-size: 0.78rem;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+
+        .comment-neutral {
+            border-left-color: var(--accent);
+        }
+
+        /* 相关资讯 */
+        .news-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #edf2f0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-bottom: 0.1rem;
+        }
+
+        .news-title {
+            font-weight: 600;
+            font-size: 0.86rem;
+            color: var(--brand);
+            margin-bottom: 0.1rem;
+        }
+
+        .news-summary {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* 标签索引 */
+        .tag-index {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag-index .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.7rem;
+            background: #eef4f1;
+            color: var(--brand);
+            border: 1px solid var(--border);
+        }
+
+        /* 右栏 */
+        .sidebar-right {
+            position: sticky;
+            top: var(--sticky-offset);
+            align-self: start;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .side-panel {
+            background: var(--panel);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .side-panel h3 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .toc-list a {
+            font-size: 0.78rem;
+            color: var(--text-soft);
+            padding: 0.2rem 0;
+            display: block;
+            border-bottom: 1px dashed #e3ebe8;
+            transition: color 0.12s;
+        }
+
+        .toc-list a:hover {
+            color: var(--brand);
+        }
+
+        .hot-item {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--brand);
+            padding: 0.35rem 0;
+            border-bottom: 1px solid #edf2f0;
+            display: flex;
+            gap: 0.4rem;
+            align-items: baseline;
+        }
+
+        .hot-item:last-child {
+            border-bottom: none;
+        }
+
+        .hot-index {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+            width: 1.2rem;
+        }
+
+        .side-panel .tag-index {
+            gap: 0.35rem;
+        }
+
+        .side-panel .tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+        }
+
+        /* 页尾 */
+        .site-footer {
+            background: var(--brand);
+            color: #cbded8;
+            padding: 2rem 0 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-brand svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-desc {
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: #a0bdb5;
+        }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #9bbab2;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 0.78rem;
+            padding: 0.15rem 0;
+            color: #cbded8;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            font-size: 0.68rem;
+            color: #8aa9a0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* 搜索结果提示 */
+        .search-feedback {
+            background: var(--accent-soft);
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 1rem;
+            font-size: 0.82rem;
+            color: #7a4218;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .search-feedback.visible {
+            display: block;
+        }
+
+        /* 响应式 */
+        @media (max-width: 1100px) {
+            .main-layout {
+                grid-template-columns: 150px 1fr;
+            }
+
+            .sidebar-right {
+                display: none;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .comment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .hero-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-visual {
+                width: 160px;
+                align-self: center;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .sidebar-left {
+                position: static;
+                order: -1;
+            }
+
+            .sidebar-left nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.3rem;
+                padding: 0.6rem;
+            }
+
+            .sidebar-left h2 {
+                display: none;
+            }
+
+            .sidebar-left ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.2rem;
+            }
+
+            .sidebar-left li a {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.6rem;
+                background: #eef4f1;
+                border-radius: 30px;
+            }
+
+            .header-search {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 0.8rem;
+            }
+
+            .site-header {
+                padding: 0 0.8rem;
+            }
+
+            .hero {
+                padding: 1.2rem 0;
+            }
+
+            .content-block {
+                padding: 1rem;
+            }
+
+            .brand-name {
+                font-size: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-top">
+        <div class="announce-bar">
+            <strong>新</strong> 人人视频网页版入口 · 在线追剧指南已更新，热门剧集与客户端对比一页掌握
+        </div>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="brand">
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="14" fill="#1e5e52"/>
+                        <path d="M12 10 L22 16 L12 22 Z" fill="white"/>
+                        <circle cx="16" cy="16" r="14" stroke="#e08b4b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="brand-name">人人视频网页版入口</span>
+                </div>
+                <nav class="header-nav" aria-label="主导航">
+                    <a href="/#intro">简介</a>
+                    <a href="/#hot">热门推荐</a>
+                    <a href="/#updates">最新更新</a>
+                    <a href="/#categories">分类</a>
+                    <a href="/#deep-dive">深度解析</a>
+                    <a href="/#faq">常见问题</a>
+                </nav>
+                <div class="header-search">
+                    <input type="text" id="siteSearch" placeholder="搜索剧集或关键词..." aria-label="搜索内容">
+                    <button id="searchBtn" aria-label="执行搜索">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="7"/>
+                            <path d="M16 16 L21 21"/>
+                        </svg>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="打开导航菜单" id="mobileMenuBtn">☰ 导航</button>
+            </div>
+        </header>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <span class="hero-badge">在线观看 · 追剧指南</span>
+                <h1>人人视频网页版入口</h1>
+                <p class="hero-desc">这里聚合了网页版入口的使用指引、热门美剧日剧推荐与客户端对比信息。无论你是想找在线观看渠道，还是想了解网页版与App的区别，都可以从下方频道快速进入。</p>
+                <div class="hero-actions">
+                    <a href="/#hot" class="btn-primary">热门剧集推荐 →</a>
+                    <a href="/#deep-dive" class="btn-outline">网页版与客户端区别</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="20" width="180" height="110" rx="12" fill="#d3e6e0"/>
+                    <rect x="10" y="20" width="180" height="110" rx="12" stroke="#1e5e52" stroke-width="2"/>
+                    <polygon points="80,55 130,80 80,105" fill="#0f3b34"/>
+                    <rect x="25" y="95" width="50" height="6" rx="3" fill="#8fb5ab"/>
+                    <rect x="25" y="108" width="80" height="6" rx="3" fill="#8fb5ab"/>
+                    <circle cx="170" cy="35" r="8" fill="#e08b4b"/>
+                    <rect x="140" y="130" width="40" height="4" rx="2" fill="#1e5e52" opacity="0.3"/>
+                    <rect x="20" y="130" width="40" height="4" rx="2" fill="#1e5e52" opacity="0.3"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <div class="container main-layout">
+        <!-- 左栏 -->
+        <aside class="sidebar-left">
+            <nav aria-label="频道导航">
+                <h2>频道导航</h2>
+                <ul>
+                    <li><a href="/#intro">平台简介</a></li>
+                    <li><a href="/#hot">热门推荐</a></li>
+                    <li><a href="/#updates">最新更新</a></li>
+                    <li><a href="/#categories">分类入口</a></li>
+                    <li><a href="/#deep-dive">深度解析</a></li>
+                    <li><a href="/#guide">体验指南</a></li>
+                    <li><a href="/#faq">常见问题</a></li>
+                    <li><a href="/#comments">用户评论</a></li>
+                    <li><a href="/#news">相关资讯</a></li>
+                    <li><a href="/#related">相关推荐</a></li>
+                    <li><a href="/#trends">趋势观察</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 中栏 -->
+        <main class="main-content">
+            <div id="searchFeedback" class="search-feedback" role="status"></div>
+
+            <!-- 1. 内容简介 -->
+            <section class="content-block" id="intro">
+                <h2>人人视频网页版入口简介</h2>
+                <p>人人视频网页版入口是许多用户在电脑或平板浏览器上追剧时关注的一种访问方式。与移动客户端不同，网页版入口通常无需下载安装，适合在办公间隙、通勤路上或临时借用设备时快速浏览内容。本站围绕这一需求，整理了在线观看的入口指引、热门剧集方向和客户端对比信息，帮助你在不同场景下选择更合适的观看方式。</p>
+                <p>对于经常追美剧、日剧、韩剧的用户来说，网页版入口的便利性在于跨设备同步与即开即用。你不需要担心存储空间不足，也不用等待应用更新。当然，网页版在推送通知和离线缓存方面与客户端存在差异，我们在深度解析板块做了详细对比。如果你是第一次接触这类平台，建议先浏览热门推荐与分类入口，找到感兴趣的类型后再决定使用哪种观看方式。</p>
+                <p>全站内容围绕“在线观看指南”“追剧攻略”“网页版与客户端区别”等方向展开，不涉及具体账号或非公开链接。你可以通过分类入口筛选类型，也可以查看用户评论了解其他人的使用感受。页面右侧提供了热门条目与延伸阅读，方便快速跳转。</p>
+            </section>
+
+            <!-- 2. 热门内容推荐 -->
+            <section class="content-block" id="hot">
+                <h2>热门内容推荐</h2>
+                <div class="card-grid">
+                    <div class="media-card">
+                        <div class="card-title">《城市边缘》第一季</div>
+                        <div class="tag-row"><span class="tag">悬疑短剧</span><span class="tag">都市情感</span><span class="tag tag-accent">更新至E06</span></div>
+                        <div class="card-desc">一起失踪案牵出三个家庭的秘密，节奏紧凑，适合通勤追剧。</div>
+                        <div class="card-meta"><span>热度 9.2</span><span>评分 8.7</span></div>
+                    </div>
+                    <div class="media-card">
+                        <div class="card-title">《深夜食堂·东京篇》</div>
+                        <div class="tag-row"><span class="tag">日剧</span><span class="tag">美食治愈</span><span class="tag tag-accent">全10集</span></div>
+                        <div class="card-desc">每集一道菜一个故事，适合睡前看一集放松心情。</div>
+                        <div class="card-meta"><span>热度 8.8</span><span>评分 9.1</span></div>
+                    </div>
+                    <div class="media-card">
+                        <div class="card-title">《硅谷回声》第二季</div>
+                        <div class="tag-row"><span class="tag">美剧</span><span class="tag">科技创业</span><span class="tag tag-accent">更新至E04</span></div>
+                        <div class="card-desc">聚焦创业公司众生相，台词密集，适合喜欢快节奏的观众。</div>
+                        <div class="card-meta"><span>热度 8.5</span><span>评分 8.4</span></div>
+                    </div>
+                    <div class="media-card">
+                        <div class="card-title">《刑侦笔记·雨夜》</div>
+                        <div class="tag-row"><span class="tag">悬疑短剧</span><span class="tag">刑侦</span><span class="tag tag-accent">完结</span></div>
+                        <div class="card-desc">单元案件串联主线，适合喜欢推理和破案题材的用户。</div>
+                        <div class="card-meta"><span>热度 9.0</span><span>评分 8.9</span></div>
+                    </div>
+                    <div class="media-card">
+                        <div class="card-title">《济州岛的夏天》</div>
+                        <div class="tag-row"><span class="tag">韩剧</span><span class="tag">治愈爱情</span><span class="tag tag-accent">更新至E08</span></div>
+                        <div class="card-desc">慢节奏海岛生活，适合周末一口气看多集。</div>
+                        <div class="card-meta"><span>热度 8.2</span><span>评分 8.3</span></div>
+                    </div>
+                    <div class="media-card">
+                        <div class="card-title">《代码之外》纪录片</div>
+                        <div class="tag-row"><span class="tag">纪录片</span><span class="tag">科技人文</span><span class="tag tag-accent">全6集</span></div>
+                        <div class="card-desc">记录程序员群体的真实工作状态，适合对科技行业好奇的观众。</div>
+                        <div class="card-meta"><span>热度 7.8</span><span>评分 8.6</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 最新更新 -->
+            <section class="content-block" id="updates">
+                <h2>最新更新与热播动态</h2>
+                <div class="compact-list">
+                    <div class="compact-item"><span class="item-name">《城市边缘》S1E06</span><span class="item-desc">新证据指向第二嫌疑人，反转再起</span></div>
+                    <div class="compact-item"><span class="item-name">《硅谷回声》S2E04</span><span class="item-desc">产品发布会前夜团队内讧升级</span></div>
+                    <div class="compact-item"><span class="item-name">《济州岛的夏天》E08</span><span class="item-desc">女主坦白心事，收视率创新高</span></div>
+                    <div class="compact-item"><span class="item-name">《深夜食堂·东京篇》</span><span class="item-desc">全集上线，美食与温情持续发酵</span></div>
+                    <div class="compact-item"><span class="item-name">《刑侦笔记·雨夜》</span><span class="item-desc">大结局点映，真凶身份引发讨论</span></div>
+                    <div class="compact-item"><span class="item-name">《屋顶侦探社》S1E05</span><span class="item-desc">单元案件加入主线伏笔，评分上升</span></div>
+                    <div class="compact-item"><span class="item-name">《厨房里的哲学家》E03</span><span class="item-desc">美食纪录片新集，探讨食材与记忆</span></div>
+                    <div class="compact-item"><span class="item-name">《极地信号》S1E02</span><span class="item-desc">科幻悬疑新剧开播，设定吸睛</span></div>
+                </div>
+            </section>
+
+            <!-- 4. 分类入口 -->
+            <section class="content-block" id="categories">
+                <h2>分类入口</h2>
+                <div class="category-grid">
+                    <a href="/#hot" class="category-item">悬疑短剧</a>
+                    <a href="/#hot" class="category-item">都市情感</a>
+                    <a href="/#hot" class="category-item">美剧</a>
+                    <a href="/#hot" class="category-item">日剧</a>
+                    <a href="/#hot" class="category-item">韩剧</a>
+                    <a href="/#hot" class="category-item">纪录片</a>
+                    <a href="/#hot" class="category-item">美食治愈</a>
+                    <a href="/#hot" class="category-item">科幻悬疑</a>
+                </div>
+            </section>
+
+            <!-- 5. 深度解析正文 -->
+            <section class="content-block" id="deep-dive">
+                <h2>深度解析：网页版与客户端怎么选</h2>
+                <p>很多用户在搜索人人视频网页版入口时，其实是在纠结“用浏览器看还是装App”。这一部分从观看场景、功能差异和实际体验三个维度展开，帮助你根据自身习惯做出选择。</p>
+                <h3>网页版适合哪些人</h3>
+                <p>如果你主要在电脑前工作或学习，偶尔想打开浏览器放松一下，网页版入口的优势很明显：不需要安装，不占用本地存储，也不会在后台消耗手机电量。对于使用公共电脑或平板浏览器的用户，网页版即开即用，用完关闭即可，隐私痕迹相对容易清理。</p>
+                <p>此外，网页版在跨设备同步观看进度方面通常依赖浏览器账号，如果你习惯在多个设备间切换，需要留意登录状态是否一致。总体而言，网页版更适合碎片化时间、临时设备以及不愿意频繁更新App的用户。</p>
+                <h3>客户端在哪些场景更顺手</h3>
+                <p>客户端在推送通知、离线缓存和播放稳定性方面通常更有保障。如果你经常在通勤地铁、航班或网络不稳定的环境下追剧，提前缓存到手机上是更稳妥的选择。客户端还能记住登录状态，减少重复输入。</p>
+                <ul>
+                    <li><strong>离线观看：</strong>客户端支持提前下载，网页版依赖网络。</li>
+                    <li><strong>消息提醒：</strong>客户端可推送更新通知，网页版需主动查看。</li>
+                    <li><strong>操作习惯：</strong>手机端手势操作更流畅，网页版依赖鼠标键盘。</li>
+                </ul>
+                <h3>网页版入口的使用建议</h3>
+                <p>如果你决定使用网页版，建议在稳定Wi-Fi环境下打开，并保持浏览器更新到较新版本。部分浏览器可能对视频播放有额外设置，比如自动播放限制或硬件加速选项，可以在设置中调整。另外，网页版入口通常不需要额外安装插件，如果遇到播放异常，先检查网络和浏览器版本。</p>
+                <p>无论选择哪种方式，内容消费的核心还是找到自己想看的剧集类型。你可以通过本站的分类入口筛选悬疑短剧、都市情感或日剧美剧，再根据观看场景决定用网页版还是客户端。</p>
+            </section>
+
+            <!-- 6. 体验指南 -->
+            <section class="content-block" id="guide">
+                <h2>体验指南</h2>
+                <p>浏览本站时，你可以通过以下方式快速定位内容：左栏频道导航直接跳转到各板块；顶部搜索框支持本地筛选，输入剧名或类型词后，页面会提示匹配结果；分类入口按悬疑短剧、都市情感、美剧、日剧等方向组织，点击可回到热门推荐区域查看对应示例。</p>
+                <p>移动端访问时，左栏频道会转为横向标签栏，右栏的目录与热门条目会折叠到主内容下方，方便单手操作。所有锚点链接都预留了吸顶公告条与页头的高度，跳转时不会遮挡标题。如果你喜欢某个方向的内容，可以使用浏览器书签收藏，或者通过页面底部的相关推荐继续探索。</p>
+            </section>
+
+            <!-- 7. FAQ -->
+            <section class="content-block" id="faq">
+                <h2>常见问题</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>人人视频网页版入口适合什么人使用？</summary>
+                        <p>适合在电脑或平板浏览器上临时追剧的用户，尤其是不想安装客户端、存储空间有限或使用公共设备的人群。网页版即开即用，适合碎片时间浏览。</p>
+                    </details>
+                    <details>
+                        <summary>网页版和客户端在观看进度上能同步吗？</summary>
+                        <p>通常需要登录同一账号才能同步进度。如果未登录或使用不同浏览器，进度可能无法自动衔接。建议在固定设备上登录后再切换使用。</p>
+                    </details>
+                    <details>
+                        <summary>悬疑短剧一般多久更新一次？</summary>
+                        <p>不同剧集更新节奏不同，常见的有每周更新一集或一次性放出全集。本站热门推荐板块标注了示例更新状态，可作为参考。</p>
+                    </details>
+                    <details>
+                        <summary>网页版入口需要额外安装插件吗？</summary>
+                        <p>不需要。网页版通常直接通过浏览器访问，无需安装插件。如果遇到播放问题，优先检查浏览器版本和网络环境。</p>
+                    </details>
+                    <details>
+                        <summary>用网页版看剧和客户端比哪个更省流量？</summary>
+                        <p>两者消耗的流量取决于视频清晰度设置。网页版在默认清晰度下与客户端差异不大，但客户端可以提前下载后离线观看，从而节省移动数据。</p>
+                    </details>
+                    <details>
+                        <summary>为什么有些剧在网页版搜不到？</summary>
+                        <p>内容库可能因授权区域、时间或设备类型存在差异。建议尝试完整剧名或切换分类入口查看。本站仅提供示例内容与指南，不保证所有条目实时可用。</p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 8. 用户评论 -->
+            <section class="content-block" id="comments">
+                <h2>用户评论</h2>
+                <div class="comment-grid">
+                    <div class="comment-item"><div class="comment-user">追剧小分队</div><div class="comment-text">网页版确实方便，上班午休打开就能看一集，不用下载App。</div></div>
+                    <div class="comment-item"><div class="comment-user">海边的卡夫卡</div><div class="comment-text">客户端缓存功能更实用，地铁通勤全靠提前下好。</div></div>
+                    <div class="comment-item"><div class="comment-user">悬疑爱好者</div><div class="comment-text">《城市边缘》节奏不错，希望更新快一点。</div></div>
+                    <div class="comment-item comment-neutral"><div class="comment-user">中立观察员</div><div class="comment-text">网页版在平板上体验还行，但手机端还是App顺手。</div></div>
+                    <div class="comment-item"><div class="comment-user">日剧迷小鹿</div><div class="comment-text">深夜食堂系列一直追，网页版搜索挺方便的。</div></div>
+                    <div class="comment-item"><div class="comment-user">代码与咖啡</div><div class="comment-text">《硅谷回声》台词写实，适合程序员看。</div></div>
+                    <div class="comment-item"><div class="comment-user">周末看片指南</div><div class="comment-text">分类入口如果能再细一点就好了，现在够用。</div></div>
+                    <div class="comment-item"><div class="comment-user">韩剧搬运工</div><div class="comment-text">济州岛的夏天画面很治愈，推荐睡前看。</div></div>
+                    <div class="comment-item comment-neutral"><div class="comment-user">理性消费</div><div class="comment-text">网页版和客户端各有优劣，看个人习惯。</div></div>
+                    <div class="comment-item"><div class="comment-user">老猫看剧</div><div class="comment-text">希望多推荐一些刑侦题材，最近剧荒。</div></div>
+                    <div class="comment-item"><div class="comment-user">光影笔记</div><div class="comment-text">纪录片板块的《代码之外》值得一看。</div></div>
+                    <div class="comment-item"><div class="comment-user">通勤追剧人</div><div class="comment-text">手机流量不够，还是习惯用网页版连Wi-Fi看。</div></div>
+                    <div class="comment-item"><div class="comment-user">咸鱼看片</div><div class="comment-text">搜索功能挺快的，输入关键词就有提示。</div></div>
+                    <div class="comment-item"><div class="comment-user">夜航星</div><div class="comment-text">科幻悬疑的《极地信号》设定挺有意思。</div></div>
+                </div>
+            </section>
+
+            <!-- 9. 相关资讯 -->
+            <section class="content-block" id="news">
+                <h2>相关资讯</h2>
+                <div class="news-item">
+                    <div class="news-date">2025-03-18</div>
+                    <div class="news-title">流媒体观看习惯变化：网页版使用时长回升</div>
+                    <div class="news-summary">近期数据显示，部分用户在办公场景更倾向使用浏览器观看，网页版入口关注度有所上升。</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">2025-03-12</div>
+                    <div class="news-title">悬疑短剧集均时长缩短，适合通勤观看</div>
+                    <div class="news-summary">新一批悬疑短剧单集控制在30分钟以内，迎合碎片化观看需求。</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">2025-03-05</div>
+                    <div class="news-title">日剧美食题材持续升温，治愈系内容受关注</div>
+                    <div class="news-summary">深夜食堂类内容在多个平台热度稳定，适合睡前放松。</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">2025-02-26</div>
+                    <div class="news-title">客户端与网页版体验差异：用户更看重离线缓存</div>
+                    <div class="news-summary">调查显示，通勤用户将离线缓存列为选择客户端的主要原因。</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">2025-02-19</div>
+                    <div class="news-title">科技创业题材剧集增多，程序员群体成受众</div>
+                    <div class="news-summary">《硅谷回声》等剧集引发科技从业者讨论，台词真实性受好评。</div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">2025-02-10</div>
+                    <div class="news-title">纪录片观看场景扩展，网页版适合上班间隙浏览</div>
+                    <div class="news-summary">短篇纪录片在浏览器端播放量上升，用户偏好即点即看。</div>
+                </div>
+            </section>
+
+            <!-- 10. 相关推荐 -->
+            <section class="content-block" id="related">
+                <h2>相关推荐</h2>
+                <div class="tag-index">
+                    <a href="/#hot" class="tag">悬疑短剧推荐</a>
+                    <a href="/#hot" class="tag">都市情感剧集</a>
+                    <a href="/#hot" class="tag">美剧更新速递</a>
+                    <a href="/#hot" class="tag">日剧治愈美食</a>
+                    <a href="/#hot" class="tag">韩剧浪漫爱情</a>
+                    <a href="/#hot" class="tag">刑侦破案系列</a>
+                    <a href="/#deep-dive" class="tag">网页版与客户端对比</a>
+                    <a href="/#guide" class="tag">在线观看指南</a>
+                </div>
+            </section>
+
+            <!-- 11. 趋势观察 -->
+            <section class="content-block" id="trends">
+                <h2>趋势观察：网页版入口的关注点变化</h2>
+                <p>从近期的搜索与讨论来看，用户对人人视频网页版入口的关注逐渐从“能不能用”转向“怎么用更顺手”。早期问题集中在入口是否存在，现在更多是围绕清晰度设置、跨设备进度同步以及网页版与客户端的场景分工。</p>
+                <p>另一个明显趋势是内容类型与观看方式的匹配。悬疑短剧因为单集短、节奏快，被大量用户在通勤或午休时通过网页版观看；而日剧、美食治愈类内容则更多出现在睡前场景，部分用户会选择客户端缓存后离线看。纪录片和科技类内容则与工作间隙的浏览器浏览习惯更契合。</p>
+                <p>未来一段时间，网页版在无需安装、即开即用方面的优势仍会吸引一部分用户，而客户端在离线与通知上的能力也难以被完全替代。对于普通观众来说，根据场景切换使用方式，比纠结“哪个更好”更实际。</p>
+            </section>
+        </main>
+
+        <!-- 右栏 -->
+        <aside class="sidebar-right">
+            <div class="side-panel">
+                <h3>页内目录</h3>
+                <ul class="toc-list">
+                    <li><a href="/#intro">平台简介</a></li>
+                    <li><a href="/#hot">热门内容推荐</a></li>
+                    <li><a href="/#updates">最新更新</a></li>
+                    <li><a href="/#categories">分类入口</a></li>
+                    <li><a href="/#deep-dive">深度解析</a></li>
+                    <li><a href="/#guide">体验指南</a></li>
+                    <li><a href="/#faq">常见问题</a></li>
+                    <li><a href="/#comments">用户评论</a></li>
+                    <li><a href="/#news">相关资讯</a></li>
+                </ul>
+            </div>
+            <div class="side-panel">
+                <h3>热门条目</h3>
+                <div class="hot-item"><span class="hot-index">01</span>《城市边缘》第一季</div>
+                <div class="hot-item"><span class="hot-index">02</span>《深夜食堂·东京篇》</div>
+                <div class="hot-item"><span class="hot-index">03</span>《硅谷回声》第二季</div>
+                <div class="hot-item"><span class="hot-index">04</span>《刑侦笔记·雨夜》</div>
+                <div class="hot-item"><span class="hot-index">05</span>《济州岛的夏天》</div>
+            </div>
+            <div class="side-panel">
+                <h3>延伸阅读</h3>
+                <div class="tag-index">
+                    <a href="/#deep-dive" class="tag">网页版优缺点</a>
+                    <a href="/#deep-dive" class="tag">客户端缓存对比</a>
+                    <a href="/#faq" class="tag">网页版常见问题</a>
+                    <a href="/#trends" class="tag">观看场景趋势</a>
+                    <a href="/#categories" class="tag">悬疑短剧分类</a>
+                    <a href="/#categories" class="tag">日剧美剧分类</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <circle cx="16" cy="16" r="14" fill="#ffffff"/>
+                            <path d="M12 10 L22 16 L12 22 Z" fill="#0f3b34"/>
+                        </svg>
+                        人人视频网页版入口
+                    </div>
+                    <div class="footer-desc">在线观看指南 · 追剧攻略 · 网页版与客户端对比。面向碎片时间追剧用户的导航与内容参考。</div>
+                </div>
+                <div class="footer-col">
+                    <h4>频道</h4>
+                    <a href="/#hot">热门推荐</a>
+                    <a href="/#updates">最新更新</a>
+                    <a href="/#categories">分类入口</a>
+                    <a href="/#deep-dive">深度解析</a>
+                </div>
+                <div class="footer-col">
+                    <h4>指南</h4>
+                    <a href="/#guide">体验指南</a>
+                    <a href="/#faq">常见问题</a>
+                    <a href="/#comments">用户评论</a>
+                    <a href="/#news">相关资讯</a>
+                </div>
+                <div class="footer-col">
+                    <h4>更多</h4>
+                    <a href="/#related">相关推荐</a>
+                    <a href="/#trends">趋势观察</a>
+                    <a href="/#intro">平台简介</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 人人视频网页版入口 · 内容导航与场景指南</span>
+                <span>部分内容为示例数据，仅用于展示页面结构</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // 本地搜索筛选（仅针对热门推荐卡片与紧凑列表做可见性反馈）
+            const searchInput = document.getElementById('siteSearch');
+            const searchBtn = document.getElementById('searchBtn');
+            const feedback = document.getElementById('searchFeedback');
+
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                if (!query) {
+                    feedback.classList.remove('visible');
+                    feedback.textContent = '';
+                    // 恢复所有卡片
+                    document.querySelectorAll('.media-card, .compact-item, .category-item').forEach(el => {
+                        el.style.display = '';
+                    });
+                    return;
+                }
+
+                const cards = document.querySelectorAll('.media-card');
+                let matchCount = 0;
+                cards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        card.style.display = '';
+                        matchCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                const compactItems = document.querySelectorAll('.compact-item');
+                compactItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        item.style.display = '';
+                        matchCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const catItems = document.querySelectorAll('.category-item');
+                catItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(query)) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                feedback.classList.add('visible');
+                if (matchCount === 0) {
+                    feedback.textContent = '没有找到与「' + searchInput.value.trim() + '」匹配的内容，试试其他剧名或类型词。';
+                } else {
+                    feedback.textContent = '找到 ' + matchCount + ' 条与「' + searchInput.value.trim() + '」相关的内容。';
+                }
+            }
+
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener('click', performSearch);
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        performSearch();
+                    }
+                });
+            }
+
+            // 移动端菜单按钮仅做提示，不实际展开完整菜单（频道已转为横向标签）
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', () => {
+                    const nav = document.querySelector('.sidebar-left nav');
+                    if (nav) {
+                        nav.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+              </html>
